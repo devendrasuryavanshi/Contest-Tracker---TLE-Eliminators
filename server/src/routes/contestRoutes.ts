@@ -32,6 +32,6 @@ router.post('/solutions/update', protect as express.RequestHandler, updateSoluti
 router.post('/solutions/update-all', updateAllSolutionLinks as any);
 
 // delete - temp turned off
-router.delete('/delete-all',protect as express.RequestHandler, deleteAllContests as any);
+// router.delete('/delete-all',protect as express.RequestHandler, deleteAllContests as any);
 
 export default router;

@@ -8,6 +8,7 @@ import contestRoutes from './routes/contestRoutes';
 import scheduleContestUpdates from './cron/contestUpdateCron';
 import path from 'path';
 import logger from './utils/logger';
+import { keepAlive } from './utils/keep-alive';
 
 dotenv.config();
 
@@ -48,13 +49,17 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
     });
 });
 
+if (process.env.NODE_ENV === 'production') {
+    const url = 'https://contest-tracker-tle-eliminators-uf9u.onrender.com';
+    keepAlive(url);
+}
+
 mongoose.connect(MONGODB_URI)
     .then(() => {
         logger.info('Connected to MongoDB');
 
         app.listen(PORT, () => {
             logger.info(`Server running on port ${PORT}`);
-
             // scheduleContestUpdates();
         });
     })
