@@ -1,4 +1,4 @@
-<p align="center"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM5ZDZmZDIiIHN0cm9rZS13aWR0aD0iMi43NSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jb2RlIj48cG9seWxpbmUgcG9pbnRzPSIxNiAxOCAyMiAxMiAxNiA2Ii8+PHBvbHlsaW5lIHBvaW50cz0iOCA2IDIgMTIgOCAxOCIvPjwvc3ZnPg==" alt="Logo" width="32" height="32" style="vertical-align: middle; margin-right: 10px;"> <span style="vertical-align: middle; font-size: 24px; font-weight: bold;">Contest Tracker - TLE Eliminators</span></p>
+<p align="center"><img src="/client/public/icons/code.svg" alt="Logo" width="32" height="32" style="vertical-align: middle; margin-right: 10px;"> <span style="vertical-align: middle; font-size: 24px; font-weight: bold;">Contest Tracker - TLE Eliminators</span></p>
 
 A web application that aggregates and tracks competitive programming contests from LeetCode, CodeForces, and CodeChef platforms with YouTube solution integration.
 
@@ -21,7 +21,8 @@ A web application that aggregates and tracks competitive programming contests fr
 
 This project was developed by `Devendra Suryavanshi` as a TLE Eliminators assignment for tracking programming contests across multiple platforms. It provides a centralized interface for viewing upcoming and past contests, bookmarking favorites, and accessing post-contest solution videos.
 
-[Video Demo Link](#)
+
+  [![Live Demo](https://img.shields.io/badge/LIVE_DEMO-Contest_Tracker_TLE_→-4F46E5?style=for-the-badge&labelColor=000000&logo=vercel&logoColor=white)](https://contest-tracker-tle-eliminators-zeta.vercel.app/)
 
 ## Features
 

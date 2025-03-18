@@ -60,7 +60,7 @@ mongoose.connect(MONGODB_URI)
 
         app.listen(PORT, () => {
             logger.info(`Server running on port ${PORT}`);
-            // scheduleContestUpdates();
+            scheduleContestUpdates();
         });
     })
     .catch((error) => {
