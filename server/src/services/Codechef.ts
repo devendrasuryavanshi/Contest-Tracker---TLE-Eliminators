@@ -51,8 +51,8 @@ export default class CodechefServices {
 
     private convertCodechefContestToSchemaData( contest: CodechefContestApiResponse ): ContestType {
         try {
-            const startTime = new Date(contest.contest_start_date);
-            const endTime = new Date(contest.contest_end_date);
+            const startTime = new Date(new Date(contest.contest_start_date).toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+            const endTime = new Date(new Date(contest.contest_end_date).toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
             const duration = (endTime.getTime() - startTime.getTime()) / 1000;
 
             return generateContestSchemaDataFromApiData({
