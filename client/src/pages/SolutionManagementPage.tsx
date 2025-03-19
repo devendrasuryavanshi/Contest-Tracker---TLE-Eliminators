@@ -4,10 +4,10 @@ import axios from "axios";
 import { toast } from "sonner";
 import { ContestSchema } from "../types/contestTypes";
 import { getPlatformIcon, formatTime, getFormattedTimeStamp } from "../utils/helper";
-import useStore from "../zustand/useStore.store";
 import { platformNames } from "../data/data";
 import { Search, Filter, Youtube, ExternalLink, Check, X, Loader2 } from "lucide-react";
 import { API_URL } from "../config";
+import useGlobalStore from "../zustand/globalStore";
 
 const SolutionManagementPage: React.FC = () => {
     const [isAuthorized, setIsAuthorized] = useState(false);
@@ -17,7 +17,7 @@ const SolutionManagementPage: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null);
     const [showPastOnly, setShowPastOnly] = useState(true);
-    const currentTheme = useStore((state) => state.currentTheme);
+    const currentTheme = useGlobalStore((state) => state.currentTheme);
     const navigate = useNavigate();
 
     const youtubePlaylistLinks = {

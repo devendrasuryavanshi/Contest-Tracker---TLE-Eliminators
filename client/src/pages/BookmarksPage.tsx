@@ -6,12 +6,12 @@ import { formatTime, getFormattedTimeStamp } from "../utils/helper";
 import ContestDetailModal from "../components/contestTracker/ContestDetailModal";
 import ContestTimer from "../components/contestTracker/ContestTimer";
 import { getPlatformIcon } from "../utils/helper";
-import useStore from "../zustand/useStore.store";
 import axios from "axios";
 import { platformNames } from "../data/data";
 import { toast } from "sonner";
 import { Tabs, Tab } from "@nextui-org/react";
 import { API_URL } from "../config";
+import useGlobalStore from "../zustand/globalStore";
 
 const BookmarksPage: React.FC = () => {
     const [bookmarkedContests, setBookmarkedContests] = useState<ContestSchema[]>([]);
@@ -23,7 +23,7 @@ const BookmarksPage: React.FC = () => {
     const [showFilters, setShowFilters] = useState(false);
     const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
     const [selectedStatus, setSelectedStatus] = useState<"all" | "upcoming" | "ongoing" | "ended">("all");
-    const currentTheme = useStore((state) => state.currentTheme);
+    const currentTheme = useGlobalStore((state) => state.currentTheme);
 
     useEffect(() => {
         const fetchBookmarkedContests = async () => {

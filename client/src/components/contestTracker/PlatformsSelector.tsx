@@ -1,16 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { platformNames } from "../../data/data";
 import { motion } from "framer-motion";
-import contestCalendarStore from "../../zustand/contestCalendar.store";
 import { contestsSupportedPlatforms } from "../../data/data";
 import { CircleChevronDown, CircleChevronUp, Plus } from "lucide-react";
+import useGlobalStore from "../../zustand/globalStore";
 export const PlatformSelector = () => {
     const [open, setOpen] = useState<boolean>(false);
     const [selectedPlatformsLocal, setSelectedPlatformsLocal] = useState<string[]>([]);
     const dropDownRef = useRef<HTMLDivElement>(null);
     const dropDownContainerRef = useRef<HTMLDivElement>(null);
-    const platforms = contestCalendarStore((state) => state.platforms);
-    const setPlatforms = contestCalendarStore((state) => state.setPlatforms);
+    const platforms = useGlobalStore((state) => state.platforms);
+    const setPlatforms = useGlobalStore((state) => state.setPlatforms);
     useEffect(() => {
         setSelectedPlatformsLocal(platforms);
     }, [platforms]);

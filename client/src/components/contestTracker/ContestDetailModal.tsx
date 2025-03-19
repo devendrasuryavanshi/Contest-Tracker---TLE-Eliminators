@@ -5,10 +5,10 @@ import { ContestSchema } from "../../types/contestTypes";
 import { formatTime, generateGoogleCalendarUrl, getFormattedTimeStamp } from "../../utils/helper";
 import ContestTimer from "./ContestTimer";
 import axios from "axios";
-import useStore from "../../zustand/useStore.store";
 import { getPlatformIcon } from "../../utils/helper";
 import { toast } from "sonner";
 import { API_URL } from "../../config";
+import useGlobalStore from "../../zustand/globalStore";
 
 interface ContestDetailModalProps {
     contest: ContestSchema;
@@ -21,7 +21,7 @@ const ContestDetailModal: React.FC<ContestDetailModalProps> = ({ contest, onClos
     const [isAddingSolution, setIsAddingSolution] = useState(false);
     const [showSolutionInput, setShowSolutionInput] = useState(false);
     const [youtubeError, setYoutubeError] = useState<string | null>(null);
-    const currentTheme = useStore((state) => state.currentTheme);
+    const currentTheme = useGlobalStore((state) => state.currentTheme);
     const [canEditSolution, setCanEditSolution] = useState(false);
 
     useEffect(() => {

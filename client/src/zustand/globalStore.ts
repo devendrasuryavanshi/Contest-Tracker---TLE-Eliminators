@@ -1,7 +1,10 @@
 import { create } from "zustand";
 import { ContestSchema } from "../types/contestTypes";
 
-interface store {
+interface GlobalStore {
+    currentTheme: string;
+    setCurrentTheme: (theme: string) => void;
+    
     section: string;
     setSection: (section: string) => void;
     platforms: string[];
@@ -10,10 +13,7 @@ interface store {
     setQuery: (query: string) => void;
     upcomingContests: ContestSchema[];
     setUpcomingContests: (contests: ContestSchema[]) => void;
-    currentMonth: {
-        start: Date;
-        end: Date;
-    };
+    currentMonth: { start: Date; end: Date; };
     setCurrentMonth: (currentMonth: { start: Date; end: Date }) => void;
     contests: ContestSchema[];
     setContests: (contests: ContestSchema[]) => void;
@@ -21,7 +21,10 @@ interface store {
     setQueryContests: (queryContests: ContestSchema[]) => void;
 }
 
-const contestCalendarStore = create<store>()((set) => ({
+const useGlobalStore = create<GlobalStore>()((set) => ({
+    currentTheme: "dark",
+    setCurrentTheme: (theme: string) => set({ currentTheme: theme }),
+    
     section: "all",
     setSection: (section: string) => set({ section }),
     platforms: [],
@@ -29,15 +32,24 @@ const contestCalendarStore = create<store>()((set) => ({
     query: "",
     setQuery: (query: string) => set({ query }),
     upcomingContests: [],
-    setUpcomingContests: (contests: ContestSchema[]) =>
-        set({ upcomingContests: contests }),
+    setUpcomingContests: (contests: ContestSchema[]) => set({ upcomingContests: contests }),
     currentMonth: { start: new Date(), end: new Date() },
-    setCurrentMonth: (currentMonth: { start: Date; end: Date }) =>
-        set({ currentMonth }),
+    setCurrentMonth: (currentMonth: { start: Date; end: Date }) => set({ currentMonth }),
     contests: [],
     setContests: (contests: ContestSchema[]) => set({ contests }),
     queryContests: [],
     setQueryContests: (queryContests: ContestSchema[]) => set({ queryContests }),
 }));
 
-export default contestCalendarStore;
+export default useGlobalStore;
+
+export const useThemeStore = () => {
+    const { currentTheme, setCurrentTheme } = useGlobalStore();
+    return { currentTheme, setCurrentTheme };
+};
+
+export const useContestCalendarStore = () => {
+    const { section, setSection, platforms, setPlatforms, query, setQuery, upcomingContests, setUpcomingContests, currentMonth, setCurrentMonth,contests, setContests, queryContests, setQueryContests} = useGlobalStore();
+    
+    return { section, setSection, platforms, setPlatforms, query,setQuery, upcomingContests, setUpcomingContests, currentMonth,setCurrentMonth, contests, setContests, queryContests, setQueryContests};
+};

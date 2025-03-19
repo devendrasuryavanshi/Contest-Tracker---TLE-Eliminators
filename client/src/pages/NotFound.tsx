@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@nextui-org/react';
-import { Home, ArrowLeft } from 'lucide-react';
+import { Home } from 'lucide-react';
 
 const NotFound: React.FC = () => {
   const navigate = useNavigate();
@@ -21,13 +21,6 @@ const NotFound: React.FC = () => {
           onClick={() => navigate('/')}
         >
           Go Home
-        </Button>
-        <Button
-          variant="bordered"
-          startContent={<ArrowLeft size={18} />}
-          onClick={() => navigate(-1)}
-        >
-          Go Back
         </Button>
       </div>
     </div>

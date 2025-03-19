@@ -1,25 +1,24 @@
 import { useEffect, useState } from "react";
 import { ContestSchema } from "../../types/contestTypes";
 import { filterContestsData, formatTime, generateGoogleCalendarUrl, groupContestsByDate, } from "../../utils/helper";
-import contestCalendarStore from "../../zustand/contestCalendar.store";
 import { contestsSupportedPlatforms } from "../../data/data";
 import { getPlatformIcon } from "../../utils/helper";
 import { format } from "date-fns";
-import useStore from "../../zustand/useStore.store";
 import { Ban, MapPinPlus, Maximize2, TriangleAlert } from "lucide-react";
 import axios from "axios";
+import useGlobalStore from "../../zustand/globalStore";
 
 export const UpcomingContests = () => {
-    const upcomingContests = contestCalendarStore(
+    const upcomingContests = useGlobalStore(
         (state) => state.upcomingContests
     );
-    const setUpcomingContests = contestCalendarStore(
+    const setUpcomingContests = useGlobalStore(
         (state) => state.setUpcomingContests
     );
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
-    const platforms = contestCalendarStore((state) => state.platforms);
-    const query = contestCalendarStore((state) => state.query);
+    const platforms = useGlobalStore((state) => state.platforms);
+    const query = useGlobalStore((state) => state.query);
     const [filteredUpcomingContests, setFilteredUpcomingContests] = useState<
         ContestSchema[]
     >([]);
@@ -134,7 +133,7 @@ const Contests = ({
 };
 
 export const ContestCard = ({ contest }: { contest: ContestSchema }) => {
-    const currentTheme = useStore((state) => state.currentTheme);
+    const currentTheme = useGlobalStore((state) => state.currentTheme);
 
     return (
         <div className="flex flex-col flex-1 no-scrollbar min-w-[300px] w-full lg:max-w-[400px] gap-2 p-4 bg-white dark:bg-darkBox-900 dark:border-darkBorder-800 border border-gray-300 rounded-xl">

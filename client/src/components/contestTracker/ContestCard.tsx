@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, Timer, ExternalLink, Bookmark } from "lucide-react";
 import { ContestSchema } from "../../types/contestTypes";
 import { formatTime, getFormattedTimeStamp } from "../../utils/helper";
-import useStore from "../../zustand/useStore.store";
 import { getPlatformIcon } from "../../utils/helper";
 import ContestTimer from "./ContestTimer";
+import useGlobalStore from "../../zustand/globalStore";
 
 interface ContestCardProps {
     contest: ContestSchema;
@@ -13,7 +13,7 @@ interface ContestCardProps {
 }
 
 const ContestCard: React.FC<ContestCardProps> = ({ contest, onClick }) => {
-    const currentTheme = useStore((state) => state.currentTheme);
+    const currentTheme = useGlobalStore((state) => state.currentTheme);
 
     const formatContestDuration = (seconds: number): string => {
         const hours = Math.floor(seconds / 3600);

@@ -3,13 +3,13 @@ import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { ContestSchema } from "../../types/contestTypes";
-import contestCalendarStore from "../../zustand/contestCalendar.store";
 import { filterContestsData } from "../../utils/helper";
 import { contestsSupportedPlatforms } from "../../data/data";
 import ContestFilters from "./ContestFilters";
 import ContestCard from "./ContestCard";
 import ContestDetailModal from "./ContestDetailModal";
 import { motion } from "framer-motion";
+import useGlobalStore from "../../zustand/globalStore";
 import { Calendar as CalendarIcon, List, Grid3X3 } from "lucide-react";
 import "./ContestDashboard.css";
 import axios from "axios";
@@ -25,11 +25,11 @@ const ContestDashboard: React.FC = () => {
     const [calendarView, setCalendarView] = useState(Views.MONTH);
     const [calendarDate, setCalendarDate] = useState(new Date());
 
-    const contests = contestCalendarStore((state) => state.contests);
-    const setContests = contestCalendarStore((state) => state.setContests);
-    const platforms = contestCalendarStore((state) => state.platforms);
-    const query = contestCalendarStore((state) => state.query);
-    const setCurrentMonth = contestCalendarStore((state) => state.setCurrentMonth);
+    const contests = useGlobalStore((state) => state.contests);
+    const setContests = useGlobalStore((state) => state.setContests);
+    const platforms = useGlobalStore((state) => state.platforms);
+    const query = useGlobalStore((state) => state.query);
+    const setCurrentMonth = useGlobalStore((state) => state.setCurrentMonth);
 
     const [filteredContests, setFilteredContests] = useState<ContestSchema[]>([]);
 

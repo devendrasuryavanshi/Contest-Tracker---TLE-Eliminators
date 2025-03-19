@@ -1,16 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Filter, ChevronDown, X, Check } from "lucide-react";
-import contestCalendarStore from "../../zustand/contestCalendar.store";
 import { platformNames, contestsSupportedPlatforms } from "../../data/data";
+import useGlobalStore from "../../zustand/globalStore";
 
 const ContestFilters: React.FC = () => {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const filterRef = useRef<HTMLDivElement>(null);
 
-    const platforms = contestCalendarStore((state) => state.platforms);
-    const setPlatforms = contestCalendarStore((state) => state.setPlatforms);
-    const setQuery = contestCalendarStore((state) => state.setQuery);
+    const platforms = useGlobalStore((state) => state.platforms);
+    const setPlatforms = useGlobalStore((state) => state.setPlatforms);
+    const setQuery = useGlobalStore((state) => state.setQuery);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
