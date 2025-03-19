@@ -1,4 +1,4 @@
-<p align="center"><img src="/client/public/icons/code.svg" alt="Logo" width="32" height="32" style="vertical-align: middle; margin-right: 10px;"> <span style="vertical-align: middle; font-size: 24px; font-weight: bold;">Contest Tracker - TLE Eliminators</span></p>
+<p align="center"><img src="/client/public/icons/code.svg" alt="Logo" width="32" height="32" style="vertical-align: middle; margin-right: 10px;"> <span style="vertical-align: middle; font-size: 30px; font-weight: bold;">Contest Tracker - TLE Eliminators</span></p>
 
 A web application that aggregates and tracks competitive programming contests from LeetCode, CodeForces, and CodeChef platforms with YouTube solution integration.
 
@@ -47,6 +47,16 @@ This project was developed by `Devendra Suryavanshi` as a TLE Eliminators assign
 - **Node.js**: Server-side JavaScript runtime
 - **JWT**: Authentication mechanism
 - **YouTube API**: For fetching solution videos
+
+## Architecture
+
+This project follows the **MVC (Model-View-Controller)** architecture pattern:
+
+- **Model**: MongoDB schemas define the data structure for contests and users
+- **View**: React components render the UI and handle user interactions (Client-side)
+- **Controller**: Express route handlers process requests and manage business logic
+
+This separation of concerns enhances code organization, maintainability, and scalability.
 
 ## API Documentation
 
