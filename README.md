@@ -2,10 +2,10 @@
 
 A web application that aggregates and tracks competitive programming contests from LeetCode, CodeForces, and CodeChef platforms with YouTube solution integration.
 
-
-> **Important Note:** For admin access, use the following credentials:  
-> Email: doraemon@gmail.com  
-> Password: 123456
+## 🔑 Admin Credentials
+> **⚠️ Important:** For testing admin features, use:  
+> 📧 **Email:** `doraemon@gmail.com`  
+> 🔒 **Password:** `123456`
 
 
   [![Live Demo](https://img.shields.io/badge/LIVE_DEMO-Contest_Tracker_TLE_→-4F46E5?style=for-the-badge&labelColor=000000&logo=vercel&logoColor=white)](https://contest-tracker-tle-eliminators-zeta.vercel.app/)
