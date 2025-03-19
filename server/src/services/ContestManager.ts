@@ -7,22 +7,28 @@ import logger from "../utils/logger";
 export default class ContestManager {
     async updateContest(contestData: ContestType): Promise<any> {
         try {
+            const standardizedData = {
+                ...contestData,
+                contestStartDate: new Date(contestData.contestStartDate.toISOString()),
+                contestEndDate: new Date(contestData.contestEndDate.toISOString())
+            };
+
             const existingContest = await Contest.findOne({
                 contestId: contestData.contestId,
                 platform: contestData.platform
             });
 
             if (existingContest) {
-                existingContest.contestName = contestData.contestName;
-                existingContest.contestStartDate = contestData.contestStartDate;
-                existingContest.contestEndDate = contestData.contestEndDate;
-                existingContest.contestDuration = contestData.contestDuration;
-                existingContest.contestUrl = contestData.contestUrl;
-                if (contestData.solutionUrl) existingContest.solutionUrl = contestData.solutionUrl;
+                existingContest.contestName = standardizedData.contestName;
+                existingContest.contestStartDate = standardizedData.contestStartDate;
+                existingContest.contestEndDate = standardizedData.contestEndDate;
+                existingContest.contestDuration = standardizedData.contestDuration;
+                existingContest.contestUrl = standardizedData.contestUrl;
+                if (standardizedData.solutionUrl) existingContest.solutionUrl = standardizedData.solutionUrl;
                 await existingContest.save();
                 return existingContest;
             } else {
-                const newContest = new Contest(contestData);
+                const newContest = new Contest(standardizedData);
                 await newContest.save();
                 return newContest;
             }
