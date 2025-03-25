@@ -50,7 +50,7 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 });
 
 if (process.env.NODE_ENV === 'production') {
-    const url = 'https://contest-tracker-tle-eliminators-uf9u.onrender.com';
+    const url = 'https://contesttracker-tle-eliminators.onrender.com';
     keepAlive(url);
 }
 
