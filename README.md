@@ -1,5 +1,10 @@
 <h1 align="center"><img src="/client/public/icons/code.svg" alt="Logo" width="32" height="32" style="vertical-align: middle; margin-right: 10px;"> Contest Tracker - TLE Eliminators</h1>
 
+> ## ⚠️ IMPORTANT SERVICE ALERT ⚠️
+> **Our free tier server resources have expired and the service is currently paused by the hosting platform.**
+> 
+> We apologize for any inconvenience. Please check back later or consider setting up the project locally using the instructions below.
+
 A web application that aggregates and tracks competitive programming contests from LeetCode, CodeForces, and CodeChef platforms with YouTube solution integration.
 
 ## 🔑 Admin Credentials
